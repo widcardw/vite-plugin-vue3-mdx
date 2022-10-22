@@ -14,7 +14,7 @@ function resolveOptions(userOptions: Options): ResolvedOptions {
     remarkRehypeOptions: {},
     wrapperClasses: 'markdown-body',
     transforms: {},
-    baseUrl: null,
+    baseUrl: '.',
     development: false,
     SourceMapGenerator: undefined,
     useDynamicImport: false,

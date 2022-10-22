@@ -64,7 +64,7 @@ interface Options {
   /**
    * Resolve imports (and `export … from`, and `import.meta.url`) from this URL
    */
-  baseUrl?: string | null
+  baseUrl?: string
 
   /**
    * Whether to add extra information to error messages in generated code

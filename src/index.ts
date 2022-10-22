@@ -1,4 +1,4 @@
-import type { Plugin } from 'vite'
+import type { FilterPattern, Plugin } from 'vite'
 import { createFilter } from 'vite'
 import { createMDXCompiler } from './mdx'
 import { resolveOptions } from './options'
@@ -9,12 +9,18 @@ function VitePluginVue3Mdx(userOptions: Options = {}): Plugin {
 
   const mdxToJsx = createMDXCompiler(options)
 
+  let extensions: FilterPattern = (userOptions.mdExtentions || []).concat(userOptions.mdxExtensions || [])
+  if (extensions.length === 0)
+    extensions = /\.mdx?$/
+
   const filter = createFilter(
-    (userOptions.mdExtentions || []).concat(userOptions.mdxExtensions || []) || /\.mdx?$/,
+    extensions,
     userOptions.exclude,
   )
+
   return {
     name: 'vite-plugin-vue3-mdx',
+    enforce: 'pre',
     transform(raw, id) {
       if (!filter(id))
         return
