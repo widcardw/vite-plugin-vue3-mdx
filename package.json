@@ -41,8 +41,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm",
-    "unbuild": "unbuild",
+    "tsup": "tsup src/index.ts --dts --format cjs,esm",
+    "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
