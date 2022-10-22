@@ -1,0 +1,10 @@
+# Hi, this is a counter
+
+import { ref } from 'vue'
+
+export const counter = ref(0)
+export const Button = () => (
+    <button onClick={() => counter.value++}>Click me</button>
+)
+
+The counter is {counter.value}. Now <Button /> to increase.
