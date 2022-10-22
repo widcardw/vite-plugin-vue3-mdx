@@ -12,7 +12,7 @@ function MDXContent(props = {}) {
   const {wrapper: MDXLayout} = props.components || ({});
   return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
 }
-MDXContent.displayName = '0123';
+MDXContent.displayName = 'hi';
 export default MDXContent;
 "
 `;
