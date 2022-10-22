@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-vue3-mdx",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@7.12.0",
   "description": "",
   "author": "widcardw <widcardw@foxmail.com>",
@@ -41,8 +41,8 @@
     "dist"
   ],
   "scripts": {
-    "tsup": "tsup src/index.ts --dts --format cjs,esm",
-    "build": "unbuild",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "unbuild": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
