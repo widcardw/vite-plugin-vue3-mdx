@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-vue3-mdx",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@7.12.0",
   "description": "",
   "author": "widcardw <widcardw@foxmail.com>",
@@ -41,7 +41,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "tsup": "tsup src/index.ts --dts --format cjs,esm",
+    "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
@@ -49,6 +50,9 @@
     "start": "esno src/index.ts",
     "test": "vitest --config vitest.config.ts",
     "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0 || ^3.0.0-0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
@@ -68,6 +72,7 @@
     "rimraf": "^3.0.2",
     "tsup": "^6.3.0",
     "typescript": "^4.8.3",
+    "unbuild": "^0.9.4",
     "unified": "^10.1.2",
     "vite": "^3.1.2",
     "vitest": "^0.23.4",
