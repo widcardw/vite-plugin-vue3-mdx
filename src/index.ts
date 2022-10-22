@@ -21,7 +21,7 @@ function VitePluginVue3Mdx(userOptions: Options = {}): Plugin {
   return {
     name: 'vite-plugin-vue3-mdx',
     enforce: 'pre',
-    transform(raw, id) {
+    async transform(raw, id) {
       if (!filter(id))
         return
 
@@ -38,7 +38,7 @@ function VitePluginVue3Mdx(userOptions: Options = {}): Plugin {
 
       const defaultRead = ctx.read
       ctx.read = async function () {
-        return mdxToJsx(ctx.file, await defaultRead()).code
+        return (await mdxToJsx(ctx.file, await defaultRead())).code
       }
     },
   }

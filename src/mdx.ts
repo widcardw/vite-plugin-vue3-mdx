@@ -1,10 +1,10 @@
 import type { TransformResult } from 'vite'
-import { compileSync } from '@mdx-js/mdx'
+import { compile } from '@mdx-js/mdx'
 import type { ResolvedOptions } from './types'
 import { addDisplayName } from './utils'
 
 function createMDXCompiler(options: ResolvedOptions) {
-  return (id: string, raw: string): TransformResult => {
+  return async (id: string, raw: string): Promise<TransformResult> => {
     raw = raw.trimStart()
 
     if (options.transforms.before)
@@ -13,7 +13,7 @@ function createMDXCompiler(options: ResolvedOptions) {
     // if (options.wrapperClasses)
     //   raw = addLayoutWrapperClasses(raw, options.wrapperClasses)
 
-    const code = compileSync(raw, options)
+    const code = await compile(raw, options)
 
     return {
       code: addDisplayName(String(code), id),

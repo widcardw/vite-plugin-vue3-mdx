@@ -11,7 +11,7 @@ describe('read from file', () => {
     const mdx = await readFile(`test/files/${fileName}.mdx`, 'utf-8')
 
     const compiler = createMDXCompiler(resolveOptions({}))
-    const jsxCode = compiler(fileName, mdx).code
+    const jsxCode = (await compiler(fileName, mdx)).code
     await saveToExported(jsxCode, fileName)
 
     const component = (await import(`./__exported__/${fileName}`)).default

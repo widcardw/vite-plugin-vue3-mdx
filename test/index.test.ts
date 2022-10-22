@@ -7,10 +7,10 @@ describe('should', () => {
   const mdxToJsx = createMDXCompiler(resolveOptions({ wrapperClasses: ['ma', 'max-w-60rem'] }))
 
   it('exported', async () => {
-    const res = mdxToJsx('0123', '#hi')
+    const res = await mdxToJsx('hi', '#hi')
     expect(res.code).toMatchSnapshot()
 
-    const res2 = mdxToJsx('uni', `
+    const res2 = await mdxToJsx('uni', `
 import { ref } from 'vue'
 
 export const count = ref(0)
