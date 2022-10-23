@@ -76,10 +76,6 @@ interface Options {
   /**
    * Class names for wrapper div
    *
-   * @warning vueJsx cannot parse `<MDXLayout><ChildComponents /></MDXLayout>`
-   * into `<div class="markdown-body"><ChildCompoents /></div>`. Instead, the
-   * `MDXLayout` element should contain a `slot`, which may be suitable for vue.
-   *
    * @default false
    */
   wrapperClasses?: false | string | string[]

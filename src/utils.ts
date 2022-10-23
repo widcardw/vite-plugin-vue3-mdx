@@ -12,13 +12,8 @@ MDXContent.displayName = '${id}';
 export default MDXContent`.trim())
 }
 
-function addLayoutWrapperClasses(raw: string, classes: string) {
-  return `
-export default function Layout({__mdx_children__}) {
-  return <div class="${classes}">{__mdx_children__}</div>;
-}
-
-${raw}`
+function addLayoutWrapperClasses(raw: string, classes: string | string[]) {
+  return raw.replace(/\: (\_createMdxContent\(props\))\;/, `: <div class="${joinClasses(classes)}">{$1}</div>;`)
 }
 
 export {

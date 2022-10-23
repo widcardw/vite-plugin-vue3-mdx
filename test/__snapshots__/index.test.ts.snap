@@ -1,6 +1,24 @@
 // Vitest Snapshot v1
 
-exports[`should > exported 1`] = `
+exports[`transform > should import vue jsx component from other file 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource react*/
+import Counter from 'test/components/Counter.tsx';
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    h1: \\"h1\\"
+  }, props.components);
+  return <><_components.h1>{\\"hi\\"}</_components.h1>{\\"\\\\n\\"}<Counter initValue={0} /></>;
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = props.components || ({});
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class=\\"ma max-w-60rem\\">{_createMdxContent(props)}</div>;
+}
+MDXContent.displayName = 'ComponentCounter';
+export default MDXContent;
+"
+`;
+
+exports[`transform > should transform mdx and wrapper classes 1`] = `
 "/*@jsxRuntime automatic @jsxImportSource react*/
 function _createMdxContent(props) {
   const _components = Object.assign({
@@ -10,16 +28,16 @@ function _createMdxContent(props) {
 }
 function MDXContent(props = {}) {
   const {wrapper: MDXLayout} = props.components || ({});
-  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class=\\"ma max-w-60rem\\">{_createMdxContent(props)}</div>;
 }
 MDXContent.displayName = 'hi';
 export default MDXContent;
 "
 `;
 
-exports[`should > exported 2`] = `
+exports[`transform > should transform mdx and wrapper classes 2`] = `
 "/*@jsxRuntime automatic @jsxImportSource react*/
-import {ref} from \\"vue\\";
+import {ref} from 'vue';
 export const count = ref(0);
 export const Button = () => <button onClick={() => count.value++}>Click me</button>;
 function _createMdxContent(props) {
@@ -30,9 +48,15 @@ function _createMdxContent(props) {
 }
 function MDXContent(props = {}) {
   const {wrapper: MDXLayout} = props.components || ({});
-  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class=\\"ma max-w-60rem\\">{_createMdxContent(props)}</div>;
 }
 MDXContent.displayName = 'uni';
 export default MDXContent;
 "
+`;
+
+exports[`transform > should transform mdx and wrapper classes 3`] = `
+"<div class=\\"ma max-w-60rem\\">
+  <p>hi 0 <button>Click me</button></p>
+</div>"
 `;

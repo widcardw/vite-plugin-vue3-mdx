@@ -14,7 +14,7 @@ function resolveOptions(userOptions: Options): ResolvedOptions {
     remarkRehypeOptions: {},
     wrapperClasses: false,
     transforms: {},
-    baseUrl: '.',
+    baseUrl: '',
     development: false,
     SourceMapGenerator: undefined,
     useDynamicImport: false,

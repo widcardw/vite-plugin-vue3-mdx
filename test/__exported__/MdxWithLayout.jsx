@@ -1,7 +1,4 @@
 /*@jsxRuntime automatic @jsxImportSource react*/
-const MDXLayout = function ({children}) {
-  return <main>{children}</main>;
-};
 function _createMdxContent(props) {
   const _components = Object.assign({
     h1: "h1"
@@ -9,6 +6,8 @@ function _createMdxContent(props) {
   return <_components.h1>{"hi"}</_components.h1>;
 }
 function MDXContent(props = {}) {
-  return <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout>;
+  const {wrapper: MDXLayout} = props.components || ({});
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class="markdown-body">{_createMdxContent(props)}</div>;
 }
+MDXContent.displayName = 'mdx';
 export default MDXContent;

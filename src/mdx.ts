@@ -10,13 +10,13 @@ function createMDXCompiler(options: ResolvedOptions) {
     if (options.transforms.before)
       raw = options.transforms.before(raw, id)
 
-    if (options.wrapperClasses)
-      raw = addLayoutWrapperClasses(raw, options.wrapperClasses)
+    let code = String(await compile(raw, options))
 
-    const code = await compile(raw, options)
+    if (options.wrapperClasses)
+      code = addLayoutWrapperClasses(code, options.wrapperClasses)
 
     return {
-      code: options.addDisplayName ? addDisplayName(String(code), id) : String(code),
+      code: options.addDisplayName ? addDisplayName(code, id) : code,
       map: { mappings: '' } as any,
     }
   }
