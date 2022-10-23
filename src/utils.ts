@@ -1,9 +1,9 @@
-function joinClasses(c: string | string[]) {
+function joinClasses(c: false | string | string[]) {
   if (typeof c === 'string')
     return c
   else if (Array.isArray(c))
     return c.filter((i?: string) => i).join(' ')
-  return ''
+  return false
 }
 
 function addDisplayName(raw: string, id: string) {

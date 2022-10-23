@@ -12,7 +12,7 @@ function resolveOptions(userOptions: Options): ResolvedOptions {
     remarkPlugins: [],
     rehypePlugins: [],
     remarkRehypeOptions: {},
-    wrapperClasses: 'markdown-body',
+    wrapperClasses: false,
     transforms: {},
     baseUrl: '.',
     development: false,
@@ -20,6 +20,7 @@ function resolveOptions(userOptions: Options): ResolvedOptions {
     useDynamicImport: false,
     include: null,
     exclude: null,
+    addDisplayName: true,
   }
 
   const options = { ...defaultOptions, ...userOptions }

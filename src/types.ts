@@ -76,10 +76,13 @@ interface Options {
   /**
    * Class names for wrapper div
    *
-   * @Not-available
-   * @default 'markdown-body'
+   * @warning vueJsx cannot parse `<MDXLayout><ChildComponents /></MDXLayout>`
+   * into `<div class="markdown-body"><ChildCompoents /></div>`. Instead, the
+   * `MDXLayout` element should contain a `slot`, which may be suitable for vue.
+   *
+   * @default false
    */
-  wrapperClasses?: string | string[]
+  wrapperClasses?: false | string | string[]
 
   SourceMapGenerator?: any
 
@@ -91,12 +94,19 @@ interface Options {
     after?: (code: string, id: string) => string
   }
 
+  /**
+   * In order to solve the problem of vue router
+   *
+   * @default true
+   */
+  addDisplayName?: boolean
+
   include?: FilterPattern
   exclude?: FilterPattern
 }
 
 interface ResolvedOptions extends Required<Options> {
-  wrapperClasses: string
+  wrapperClasses: string | false
 }
 
 export {
