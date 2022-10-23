@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`mdx layout > should import mdx component 1`] = `
+"<main>
+  <!---->
+</main>"
+`;
