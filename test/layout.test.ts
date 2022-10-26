@@ -9,7 +9,7 @@ describe('mdx layout', () => {
   it('should parse mdx with layout into jsx', async () => {
     const mdx = `
 # hi`
-    const compiler = createMDXCompiler(resolveOptions({ wrapperClasses: 'markdown-body' }))
+    const compiler = createMDXCompiler(resolveOptions({ wrapperClasses: ['markdown-body', 'prose'] }))
     const jsxCode = (await compiler('mdx', mdx)).code
     saveToExported(jsxCode, fileName)
   })

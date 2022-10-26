@@ -1,7 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`mdx layout > should import mdx component 1`] = `
-"<div class=\\"markdown-body\\">
+"<div class=\\"markdown-body prose\\">
   <h1>hi</h1>
 </div>"
 `;

@@ -1,8 +1,16 @@
 function joinClasses(c: false | string | string[]) {
-  if (typeof c === 'string')
-    return c
-  else if (Array.isArray(c))
+  if (typeof c === 'string') {
+    const trimed = c.trim()
+    if (trimed === '')
+      return false
+    else
+      return trimed
+  }
+  else if (Array.isArray(c)) {
+    if (c.length === 0)
+      return false
     return c.filter((i?: string) => i).join(' ')
+  }
   return false
 }
 
@@ -13,7 +21,10 @@ export default MDXContent`.trim())
 }
 
 function addLayoutWrapperClasses(raw: string, classes: string | string[]) {
-  return raw.replace(/\: (\_createMdxContent\(props\))\;/, `: <div class="${joinClasses(classes)}">{$1}</div>;`)
+  const joinedClasses = joinClasses(classes)
+  if (joinedClasses)
+    return raw.replace(/\: (\_createMdxContent\(props\))\;/, `: <div class="${joinClasses(classes)}">{$1}</div>;`)
+  return raw
 }
 
 export {

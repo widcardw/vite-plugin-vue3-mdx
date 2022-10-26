@@ -1,5 +1,5 @@
 /*@jsxRuntime automatic @jsxImportSource react*/
-import {ref} from "vue";
+import {ref} from 'vue';
 export const counter = ref(0);
 export const Button = () => <button onClick={() => counter.value++}>Click me</button>;
 function _createMdxContent(props) {

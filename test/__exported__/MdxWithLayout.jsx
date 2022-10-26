@@ -7,7 +7,7 @@ function _createMdxContent(props) {
 }
 function MDXContent(props = {}) {
   const {wrapper: MDXLayout} = props.components || ({});
-  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class="markdown-body">{_createMdxContent(props)}</div>;
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : <div class="markdown-body prose">{_createMdxContent(props)}</div>;
 }
 MDXContent.displayName = 'mdx';
 export default MDXContent;
